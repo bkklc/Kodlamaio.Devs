@@ -2,14 +2,18 @@
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace Persistence.Migrations
 {
+    /// <inheritdoc />
     public partial class Init : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Brands",
+                name: "ProgrammingLanguages",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -18,24 +22,24 @@ namespace Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Brands", x => x.Id);
+                    table.PrimaryKey("PK_ProgrammingLanguages", x => x.Id);
                 });
 
             migrationBuilder.InsertData(
-                table: "Brands",
+                table: "ProgrammingLanguages",
                 columns: new[] { "Id", "Name" },
-                values: new object[] { 1, "BMW" });
-
-            migrationBuilder.InsertData(
-                table: "Brands",
-                columns: new[] { "Id", "Name" },
-                values: new object[] { 2, "Mercedes" });
+                values: new object[,]
+                {
+                    { 1, "C#" },
+                    { 2, "Java" }
+                });
         }
 
+        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Brands");
+                name: "ProgrammingLanguages");
         }
     }
 }

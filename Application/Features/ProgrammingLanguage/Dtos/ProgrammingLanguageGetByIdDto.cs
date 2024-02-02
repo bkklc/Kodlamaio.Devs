@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Brands.Dtos
+namespace Application.Features.ProgrammingLanguage.Dtos
 {
-    public class BrandGetByIdDto
+    public class ProgrammingLanguageGetByIdDto
     {
         public int Id { get; set; }
         public string Name { get; set; }

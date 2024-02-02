@@ -1,15 +1,9 @@
-﻿using Application.Features.Brands.Rules;
+﻿using Application.Features.ProgrammingLanguages.Rules;
 using Core.Application.Pipelines.Validation;
 using FluentValidation;
 using MediatR;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application
 {
@@ -19,16 +13,15 @@ namespace Application
         {
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
-            //services.AddMediatR(Assembly.GetExecutingAssembly());
 
             services.AddMediatR(configuration =>
             {
                 configuration.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
-                
+
             });
 
 
-            services.AddScoped<BrandBusinessRules>();
+            services.AddScoped<ProgrammingLanguageBusinessRules>();
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehavior<,>));
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CachingBehavior<,>));

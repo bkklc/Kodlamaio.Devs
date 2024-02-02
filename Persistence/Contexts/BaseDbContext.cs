@@ -12,7 +12,7 @@ namespace Persistence.Contexts
     public class BaseDbContext : DbContext
     {
         protected IConfiguration Configuration { get; set; }
-        public DbSet<Brand> Brands { get; set; }
+        public DbSet<PLanguage> ProgrammingLanguages { get; set; }
        
 
         public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
@@ -29,17 +29,17 @@ namespace Persistence.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Brand>(a =>
+            modelBuilder.Entity<PLanguage>(a =>
             {
-                a.ToTable("Brands").HasKey(k => k.Id);
+                a.ToTable("ProgrammingLanguages").HasKey(k => k.Id);
                 a.Property(p => p.Id).HasColumnName("Id");
                 a.Property(p => p.Name).HasColumnName("Name");
             });
 
 
 
-            Brand[] brandEntitySeeds = { new(1, "Audi"), new(2, "Mercedes") };
-            modelBuilder.Entity<Brand>().HasData(brandEntitySeeds);
+            PLanguage[] pLanguageEntitySeeds = { new(1, "C#"), new(2, "Java") };
+            modelBuilder.Entity<PLanguage>().HasData(pLanguageEntitySeeds);
 
            
         }
