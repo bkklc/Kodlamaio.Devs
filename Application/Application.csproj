@@ -19,6 +19,7 @@
 
 	<ItemGroup>
 	  <Folder Include="Features\ProgrammingLanguage\Constants\" />
+	  <Folder Include="Features\SoftwareTechs\Constants\" />
 	</ItemGroup>
 
 	
