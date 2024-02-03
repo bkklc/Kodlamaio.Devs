@@ -1,4 +1,6 @@
 ﻿using Application.Features.ProgrammingLanguage.Commands.CreateProgrammingLanguage;
+using Application.Features.ProgrammingLanguage.Commands.DeleteProgrammingLanguage;
+using Application.Features.ProgrammingLanguage.Commands.UpdateProgrammingLanguage;
 using Application.Features.ProgrammingLanguage.Dtos;
 using Application.Features.ProgrammingLanguage.Models;
 using Application.Features.ProgrammingLanguages.Queries.GetByIdProgrammingLanguage;
@@ -19,21 +21,21 @@ namespace WebAPI.Controllers
             return Created("", result);
         }
 
-        //[HttpPut]
-        //public async Task<IActionResult> Update([FromBody] UpdateProgrammingLanguageCommand updateProgrammingLanguageCommand)
-        //{
-        //    UpdatedProgrammingLanguageDto result = await Mediator.Send(updateProgrammingLanguageCommand);
-        //    return Ok(result);
-        //}
+        [HttpPut("Update")]
+        public async Task<IActionResult> Update([FromBody] UpdateProgrammingLanguageCommand updateProgrammingLanguageCommand)
+        {
+            UpdatedProgrammingLanguageDto result = await Mediator.Send(updateProgrammingLanguageCommand);
+            return Ok(result);
+        }
 
-        //[HttpDelete]
-        //public async Task<IActionResult> Delete([FromBody] DeleteProgrammingLanguageCommand deleteProgrammingLanguageCommand)
-        //{
-        //    DeletedProgrammingLanguageDto result = await Mediator.Send(deleteProgrammingLanguageCommand);
-        //    return Ok(result);
-        //}
+        [HttpDelete]
+        public async Task<IActionResult> Delete([FromQuery] DeleteProgrammingLanguageCommand deleteProgrammingLanguageCommand)
+        {
+            DeletedProgrammingLanguageDto result = await Mediator.Send(deleteProgrammingLanguageCommand);
+            return Ok(result);
+        }
 
-        [HttpGet]
+        [HttpGet("GetAll")]
         public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
         {
             GetListProgrammingLanguageQuery getListProgrammingLanguageQuery = new() { PageRequest = pageRequest };
