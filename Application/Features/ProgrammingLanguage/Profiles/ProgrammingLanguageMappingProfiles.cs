@@ -15,9 +15,9 @@ using Application.Features.ProgrammingLanguage.Commands.UpdateProgrammingLanguag
 
 namespace Application.Features.ProgrammingLanguages.Profiles
 {
-    public class MappingProfiles : Profile
+    public class ProgrammingLanguageMappingProfiles : Profile
     {
-        public MappingProfiles()
+        public ProgrammingLanguageMappingProfiles()
         {
             CreateMap<PLanguage, CreatedProgrammingLanguageDto>().ReverseMap();
             CreateMap<PLanguage, UpdatedProgrammingLanguageDto>().ReverseMap();

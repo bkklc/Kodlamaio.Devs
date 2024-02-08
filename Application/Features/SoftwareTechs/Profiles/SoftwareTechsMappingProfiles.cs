@@ -9,9 +9,9 @@ using Domain.Entities;
 
 namespace Application.Features.SoftwareTechs.Profiles
 {
-    public class MappingProfiles : Profile
+    public class SoftwareTechsMappingProfiles : Profile
     {
-        public MappingProfiles()
+        public SoftwareTechsMappingProfiles()
         {
             CreateMap<SoftwareTech, CreatedSoftwareTechDto>().ReverseMap();
             CreateMap<SoftwareTech, UpdatedSoftwareTechDto>().ReverseMap();

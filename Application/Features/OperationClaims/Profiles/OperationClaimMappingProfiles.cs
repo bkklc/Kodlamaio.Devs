@@ -14,10 +14,10 @@ using System.Threading.Tasks;
 
 namespace Application.Features.OperationClaims.Profiles
 {
-    public class MappingProfiles : Profile
+    public class OperationClaimMappingProfiles : Profile
     {
 
-        public MappingProfiles()
+        public OperationClaimMappingProfiles()
         {
             CreateMap<OperationClaim, CreatedOperationClaimDto>().ReverseMap();
             CreateMap<OperationClaim, CreateOperationClaimCommand>().ReverseMap();
