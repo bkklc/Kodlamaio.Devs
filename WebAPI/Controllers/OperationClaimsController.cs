@@ -5,6 +5,7 @@ using Application.Features.OperationClaims.Dtos;
 using Application.Features.OperationClaims.Models;
 using Application.Features.OperationClaims.Queries;
 using Core.Application.Requests;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,6 +13,7 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class OperationClaimsController : BaseController
     {
         [HttpPost("[action]")]
