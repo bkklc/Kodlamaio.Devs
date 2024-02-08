@@ -68,10 +68,11 @@ public class JwtHelper : ITokenHelper
 
     private IEnumerable<Claim> SetClaims(User user, IList<OperationClaim> operationClaims)
     {
-        List<Claim> claims = new();
-        claims.AddNameIdentifier(user.Id.ToString());
-        claims.AddEmail(user.Email);
-        claims.AddName($"{user.FirstName} {user.LastName}");
+        var claims = new List<Claim>();
+
+        claims.Add(new Claim("ID", user.Id.ToString()));
+        claims.Add(new Claim("Email", user.Email));
+        claims.Add(new Claim("Name", $"{user.FirstName} {user.LastName}"));
         claims.AddRoles(operationClaims.Select(c => c.Name).ToArray());
         return claims;
     }

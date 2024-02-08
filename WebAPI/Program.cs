@@ -76,6 +76,8 @@ if (app.Environment.IsProduction())
     app.ConfigureCustomExceptionMiddleware();
 }
 
+//app.ConfigureCustomExceptionMiddleware();
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

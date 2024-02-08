@@ -7,12 +7,14 @@ using Application.Features.SoftwareTechs.Queries.GetByIdSoftwareTech;
 using Application.Features.SoftwareTechs.Queries.GetListSoftwareTech;
 using Core.Application.Requests;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class SoftwareTechsController : BaseController
     {
         [HttpPost("Add")]
