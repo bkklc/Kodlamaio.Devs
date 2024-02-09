@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Application.Features.SoftwareTechs.Models;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Application.Pipelines.Authorization;
 using Core.Application.Requests;
 using Core.Persistence.Paging;
 using Domain.Entities;
@@ -14,8 +15,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.SoftwareTechs.Queries.GetListSoftwareTech
 {
-    public class GetListSoftwareTechQuery : IRequest<SoftwareTechListModel>
+    public class GetListSoftwareTechQuery : IRequest<SoftwareTechListModel>, ISecuredRequest
     {
+        public string[] Roles { get; } = { "Admin" };
         public PageRequest PageRequest { get; set; }
 
         public class GetListSoftwareTechQueryHandler : IRequestHandler<GetListSoftwareTechQuery, SoftwareTechListModel>

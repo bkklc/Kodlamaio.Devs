@@ -3,6 +3,7 @@ using Application.Features.SoftwareTechs.Dtos;
 using Application.Features.SoftwareTechs.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Application.Pipelines.Authorization;
 using Domain.Entities;
 using MediatR;
 using System;
@@ -13,8 +14,9 @@ using System.Threading.Tasks;
 
 namespace Application.Features.SoftwareTechs.Commands.DeleteSoftwareTech
 {
-    public class DeleteSoftwareTechCommand : IRequest<DeletedSoftwareTechDto>
+    public class DeleteSoftwareTechCommand : IRequest<DeletedSoftwareTechDto>, ISecuredRequest
     {
+        public string[] Roles { get; } = { "Admin" };
         public int Id { get; set; }
 
         public class DeleteSoftwareTechCommandHandler : IRequestHandler<DeleteSoftwareTechCommand, DeletedSoftwareTechDto>

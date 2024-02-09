@@ -2,13 +2,15 @@
 using Application.Features.SoftwareTechs.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Application.Pipelines.Authorization;
 using Domain.Entities;
 using MediatR;
 
 namespace Application.Features.SoftwareTechs.Commands.CreateSoftwareTech
 {
-    public class CreateSoftwareTechCommand : IRequest<CreatedSoftwareTechDto>
+    public class CreateSoftwareTechCommand : IRequest<CreatedSoftwareTechDto>, ISecuredRequest
     {
+        public string[] Roles { get; } = { "Admin" };
         public int PLanguageId { get; set; }
         public string Name { get; set; }
 

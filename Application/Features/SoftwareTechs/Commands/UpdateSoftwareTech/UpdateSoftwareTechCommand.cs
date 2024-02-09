@@ -3,6 +3,7 @@ using Application.Features.SoftwareTechs.Dtos;
 using Application.Features.SoftwareTechs.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Application.Pipelines.Authorization;
 using Domain.Entities;
 using MediatR;
 using System;
@@ -13,8 +14,9 @@ using System.Threading.Tasks;
 
 namespace Application.Features.SoftwareTechs.Commands.UpdateSoftwareTech
 {
-    public  class UpdateSoftwareTechCommand : IRequest<UpdatedSoftwareTechDto> 
+    public  class UpdateSoftwareTechCommand : IRequest<UpdatedSoftwareTechDto>, ISecuredRequest
     {
+        public string[] Roles { get; } = { "Admin" };
         public int Id { get; set; }
         public int LanguageId { get; set; }
         public string? Name { get; set; }

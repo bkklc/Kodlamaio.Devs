@@ -9,6 +9,7 @@ using Application.Features.SoftwareTechs.Queries.GetListSoftwareTech;
 using Application.Features.SoftwareTechs.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Application.Pipelines.Authorization;
 using Core.Application.Requests;
 using Core.Persistence.Paging;
 using Domain.Entities;
@@ -17,8 +18,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.SoftwareTechs.Queries.GetByIdSoftwareTech
 {
-    public class GetByIdSoftwareTechQuery : IRequest<SoftwareTechGetByIdDto>
+    public class GetByIdSoftwareTechQuery : IRequest<SoftwareTechGetByIdDto>, ISecuredRequest
     {
+        public string[] Roles { get; } = { "Admin" };
         public int Id { get; set; }        
 
         public class GetByIdSoftwareTechQueryHandler : IRequestHandler<GetByIdSoftwareTechQuery, SoftwareTechGetByIdDto>

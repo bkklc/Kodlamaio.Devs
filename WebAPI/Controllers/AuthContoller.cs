@@ -22,7 +22,7 @@ public class AuthController : BaseController
         };
 
 
-        RegisteredDto result = await Mediator.Send(registerCommand);
+        RegisteredDto result = await Mediator!.Send(registerCommand);
 
         SetRefreshTokenToCookie(result.RefreshToken);
         return Created("", result.AccessToken);
@@ -36,7 +36,7 @@ public class AuthController : BaseController
             UserForLoginDto = userForLoginDto,
             IpAddress = GetIpAddress()
         };
-        LoginedDto result = await Mediator.Send(loginCommand);
+        LoginedDto result = await Mediator!.Send(loginCommand);
         SetRefreshTokenToCookie(result.RefreshToken);
         return Created("", result.AccessToken);
     }
