@@ -15,6 +15,7 @@ namespace Persistence.Contexts
         protected IConfiguration Configuration { get; set; }
         public DbSet<PLanguage> ProgrammingLanguages { get; set; }
         public DbSet<SoftwareTech> SoftwareTeches { get; set; }
+        public DbSet<SocialMediaAccount> SocialMediaAccounts { get; set; }
 
         public DbSet<User> Users { get; set; }
         public DbSet<OperationClaim> OperationClaims { get; set; }
